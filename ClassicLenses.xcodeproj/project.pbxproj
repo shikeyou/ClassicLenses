@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F150974E1BE70B4E00AA1740 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150974D1BE70B4E00AA1740 /* AppDelegate.swift */; };
+		F15097531BE70B4E00AA1740 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F15097511BE70B4E00AA1740 /* Main.storyboard */; };
+		F15097561BE70B4E00AA1740 /* ClassicLenses.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F15097541BE70B4E00AA1740 /* ClassicLenses.xcdatamodeld */; };
+		F15097581BE70B4E00AA1740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F15097571BE70B4E00AA1740 /* Assets.xcassets */; };
+		F150975B1BE70B4E00AA1740 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F15097591BE70B4E00AA1740 /* LaunchScreen.storyboard */; };
+		F15097661BE70B4E00AA1740 /* ClassicLensesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15097651BE70B4E00AA1740 /* ClassicLensesTests.swift */; };
+		F15097711BE70B4F00AA1740 /* ClassicLensesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15097701BE70B4F00AA1740 /* ClassicLensesUITests.swift */; };
+		F150977F1BE715EB00AA1740 /* LensViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F150977E1BE715EB00AA1740 /* LensViewController.swift */; };
+		F15097811BE71E7A00AA1740 /* LensDetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15097801BE71E7A00AA1740 /* LensDetailInfoViewController.swift */; };
+		F15097831BE7690800AA1740 /* LensDetailTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15097821BE7690800AA1740 /* LensDetailTabBarController.swift */; };
+		F15097851BE773F500AA1740 /* Lens.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15097841BE773F500AA1740 /* Lens.swift */; };
+		F1DE0A061BEA66740025364F /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE0A051BEA66730025364F /* PhotoViewController.swift */; };
+		F1E0CFE01BE9C1F60030A046 /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E0CFDD1BE9C1F60030A046 /* FlickrClient.swift */; };
+		F1E0CFE11BE9C1F60030A046 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E0CFDE1BE9C1F60030A046 /* HelperFunctions.swift */; };
+		F1E0CFE21BE9C1F60030A046 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E0CFDF1BE9C1F60030A046 /* Photo.swift */; };
+		F1E458FC1BEF0F27002D9089 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E458FB1BEF0F27002D9089 /* Price.swift */; };
+		F1E458FE1BEF10DB002D9089 /* LensDetailPricesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E458FD1BEF10DB002D9089 /* LensDetailPricesViewController.swift */; };
+		F1E459011BEF19C7002D9089 /* ScrapingHubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E459001BEF19C7002D9089 /* ScrapingHubClient.swift */; };
+		F1EE62D31BE916CF00DDA1A2 /* LensDetailPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EE62D21BE916CF00DDA1A2 /* LensDetailPhotosViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F15097621BE70B4E00AA1740 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F15097421BE70B4D00AA1740 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F15097491BE70B4D00AA1740;
+			remoteInfo = ClassicLenses;
+		};
+		F150976D1BE70B4F00AA1740 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F15097421BE70B4D00AA1740 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F15097491BE70B4D00AA1740;
+			remoteInfo = ClassicLenses;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F150974A1BE70B4D00AA1740 /* ClassicLenses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassicLenses.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F150974D1BE70B4E00AA1740 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F15097521BE70B4E00AA1740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F15097551BE70B4E00AA1740 /* ClassicLenses.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClassicLenses.xcdatamodel; sourceTree = "<group>"; };
+		F15097571BE70B4E00AA1740 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F150975A1BE70B4E00AA1740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F150975C1BE70B4E00AA1740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F15097611BE70B4E00AA1740 /* ClassicLenses.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassicLenses.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F15097651BE70B4E00AA1740 /* ClassicLensesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClassicLensesTests.swift; path = ClassicLensesTests/ClassicLensesTests.swift; sourceTree = "<group>"; };
+		F15097671BE70B4F00AA1740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = ClassicLensesTests/Info.plist; sourceTree = "<group>"; };
+		F150976C1BE70B4F00AA1740 /* ClassicLenses.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClassicLenses.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F15097701BE70B4F00AA1740 /* ClassicLensesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClassicLensesUITests.swift; path = ClassicLensesUITests/ClassicLensesUITests.swift; sourceTree = "<group>"; };
+		F15097721BE70B4F00AA1740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = ClassicLensesUITests/Info.plist; sourceTree = "<group>"; };
+		F150977E1BE715EB00AA1740 /* LensViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensViewController.swift; sourceTree = "<group>"; };
+		F15097801BE71E7A00AA1740 /* LensDetailInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensDetailInfoViewController.swift; sourceTree = "<group>"; };
+		F15097821BE7690800AA1740 /* LensDetailTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensDetailTabBarController.swift; sourceTree = "<group>"; };
+		F15097841BE773F500AA1740 /* Lens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lens.swift; sourceTree = "<group>"; };
+		F1DE0A051BEA66730025364F /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		F1E0CFDD1BE9C1F60030A046 /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
+		F1E0CFDE1BE9C1F60030A046 /* HelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		F1E0CFDF1BE9C1F60030A046 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		F1E458FB1BEF0F27002D9089 /* Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
+		F1E458FD1BEF10DB002D9089 /* LensDetailPricesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensDetailPricesViewController.swift; sourceTree = "<group>"; };
+		F1E459001BEF19C7002D9089 /* ScrapingHubClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrapingHubClient.swift; sourceTree = "<group>"; };
+		F1EE62D21BE916CF00DDA1A2 /* LensDetailPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LensDetailPhotosViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F15097471BE70B4D00AA1740 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F150975E1BE70B4E00AA1740 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F15097691BE70B4F00AA1740 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F15097411BE70B4D00AA1740 = {
+			isa = PBXGroup;
+			children = (
+				F150974C1BE70B4D00AA1740 /* ClassicLenses */,
+				F15097641BE70B4E00AA1740 /* ClassicLensesTests */,
+				F150976F1BE70B4F00AA1740 /* ClassicLensesUITests */,
+				F150974B1BE70B4D00AA1740 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F150974B1BE70B4D00AA1740 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F150974A1BE70B4D00AA1740 /* ClassicLenses.app */,
+				F15097611BE70B4E00AA1740 /* ClassicLenses.xctest */,
+				F150976C1BE70B4F00AA1740 /* ClassicLenses.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F150974C1BE70B4D00AA1740 /* ClassicLenses */ = {
+			isa = PBXGroup;
+			children = (
+				F1E458FA1BEF0E2B002D9089 /* models */,
+				F1E458FF1BEF10F2002D9089 /* viewcontrollers */,
+				F1E458F91BEF0E1F002D9089 /* lib */,
+				F150974D1BE70B4E00AA1740 /* AppDelegate.swift */,
+				F15097511BE70B4E00AA1740 /* Main.storyboard */,
+				F15097571BE70B4E00AA1740 /* Assets.xcassets */,
+				F15097591BE70B4E00AA1740 /* LaunchScreen.storyboard */,
+				F150975C1BE70B4E00AA1740 /* Info.plist */,
+				F15097541BE70B4E00AA1740 /* ClassicLenses.xcdatamodeld */,
+			);
+			path = ClassicLenses;
+			sourceTree = "<group>";
+		};
+		F15097641BE70B4E00AA1740 /* ClassicLensesTests */ = {
+			isa = PBXGroup;
+			children = (
+				F15097651BE70B4E00AA1740 /* ClassicLensesTests.swift */,
+				F15097671BE70B4F00AA1740 /* Info.plist */,
+			);
+			name = ClassicLensesTests;
+			path = ClassicLensTests;
+			sourceTree = "<group>";
+		};
+		F150976F1BE70B4F00AA1740 /* ClassicLensesUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F15097701BE70B4F00AA1740 /* ClassicLensesUITests.swift */,
+				F15097721BE70B4F00AA1740 /* Info.plist */,
+			);
+			name = ClassicLensesUITests;
+			path = ClassicLensUITests;
+			sourceTree = "<group>";
+		};
+		F1E458F91BEF0E1F002D9089 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				F1E0CFDE1BE9C1F60030A046 /* HelperFunctions.swift */,
+				F1E0CFDD1BE9C1F60030A046 /* FlickrClient.swift */,
+				F1E459001BEF19C7002D9089 /* ScrapingHubClient.swift */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		F1E458FA1BEF0E2B002D9089 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				F1E0CFDF1BE9C1F60030A046 /* Photo.swift */,
+				F15097841BE773F500AA1740 /* Lens.swift */,
+				F1E458FB1BEF0F27002D9089 /* Price.swift */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		F1E458FF1BEF10F2002D9089 /* viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				F150977E1BE715EB00AA1740 /* LensViewController.swift */,
+				F15097821BE7690800AA1740 /* LensDetailTabBarController.swift */,
+				F15097801BE71E7A00AA1740 /* LensDetailInfoViewController.swift */,
+				F1EE62D21BE916CF00DDA1A2 /* LensDetailPhotosViewController.swift */,
+				F1E458FD1BEF10DB002D9089 /* LensDetailPricesViewController.swift */,
+				F1DE0A051BEA66730025364F /* PhotoViewController.swift */,
+			);
+			name = viewcontrollers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F15097491BE70B4D00AA1740 /* ClassicLenses */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F15097751BE70B4F00AA1740 /* Build configuration list for PBXNativeTarget "ClassicLenses" */;
+			buildPhases = (
+				F15097461BE70B4D00AA1740 /* Sources */,
+				F15097471BE70B4D00AA1740 /* Frameworks */,
+				F15097481BE70B4D00AA1740 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ClassicLenses;
+			productName = ClassicLenses;
+			productReference = F150974A1BE70B4D00AA1740 /* ClassicLenses.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F15097601BE70B4E00AA1740 /* ClassicLensesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F15097781BE70B4F00AA1740 /* Build configuration list for PBXNativeTarget "ClassicLensesTests" */;
+			buildPhases = (
+				F150975D1BE70B4E00AA1740 /* Sources */,
+				F150975E1BE70B4E00AA1740 /* Frameworks */,
+				F150975F1BE70B4E00AA1740 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F15097631BE70B4E00AA1740 /* PBXTargetDependency */,
+			);
+			name = ClassicLensesTests;
+			productName = ClassicLensTests;
+			productReference = F15097611BE70B4E00AA1740 /* ClassicLenses.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F150976B1BE70B4F00AA1740 /* ClassicLensesUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F150977B1BE70B4F00AA1740 /* Build configuration list for PBXNativeTarget "ClassicLensesUITests" */;
+			buildPhases = (
+				F15097681BE70B4F00AA1740 /* Sources */,
+				F15097691BE70B4F00AA1740 /* Frameworks */,
+				F150976A1BE70B4F00AA1740 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F150976E1BE70B4F00AA1740 /* PBXTargetDependency */,
+			);
+			name = ClassicLensesUITests;
+			productName = ClassicLensUITests;
+			productReference = F150976C1BE70B4F00AA1740 /* ClassicLenses.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F15097421BE70B4D00AA1740 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = KSL;
+				TargetAttributes = {
+					F15097491BE70B4D00AA1740 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					F15097601BE70B4E00AA1740 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = F15097491BE70B4D00AA1740;
+					};
+					F150976B1BE70B4F00AA1740 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = F15097491BE70B4D00AA1740;
+					};
+				};
+			};
+			buildConfigurationList = F15097451BE70B4D00AA1740 /* Build configuration list for PBXProject "ClassicLenses" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F15097411BE70B4D00AA1740;
+			productRefGroup = F150974B1BE70B4D00AA1740 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F15097491BE70B4D00AA1740 /* ClassicLenses */,
+				F15097601BE70B4E00AA1740 /* ClassicLensesTests */,
+				F150976B1BE70B4F00AA1740 /* ClassicLensesUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F15097481BE70B4D00AA1740 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F150975B1BE70B4E00AA1740 /* LaunchScreen.storyboard in Resources */,
+				F15097581BE70B4E00AA1740 /* Assets.xcassets in Resources */,
+				F15097531BE70B4E00AA1740 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F150975F1BE70B4E00AA1740 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F150976A1BE70B4F00AA1740 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F15097461BE70B4D00AA1740 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F150974E1BE70B4E00AA1740 /* AppDelegate.swift in Sources */,
+				F15097811BE71E7A00AA1740 /* LensDetailInfoViewController.swift in Sources */,
+				F15097561BE70B4E00AA1740 /* ClassicLenses.xcdatamodeld in Sources */,
+				F1EE62D31BE916CF00DDA1A2 /* LensDetailPhotosViewController.swift in Sources */,
+				F1E0CFE21BE9C1F60030A046 /* Photo.swift in Sources */,
+				F1E458FC1BEF0F27002D9089 /* Price.swift in Sources */,
+				F15097831BE7690800AA1740 /* LensDetailTabBarController.swift in Sources */,
+				F1E459011BEF19C7002D9089 /* ScrapingHubClient.swift in Sources */,
+				F150977F1BE715EB00AA1740 /* LensViewController.swift in Sources */,
+				F15097851BE773F500AA1740 /* Lens.swift in Sources */,
+				F1E0CFE01BE9C1F60030A046 /* FlickrClient.swift in Sources */,
+				F1E0CFE11BE9C1F60030A046 /* HelperFunctions.swift in Sources */,
+				F1DE0A061BEA66740025364F /* PhotoViewController.swift in Sources */,
+				F1E458FE1BEF10DB002D9089 /* LensDetailPricesViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F150975D1BE70B4E00AA1740 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F15097661BE70B4E00AA1740 /* ClassicLensesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F15097681BE70B4F00AA1740 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F15097711BE70B4F00AA1740 /* ClassicLensesUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F15097631BE70B4E00AA1740 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F15097491BE70B4D00AA1740 /* ClassicLenses */;
+			targetProxy = F15097621BE70B4E00AA1740 /* PBXContainerItemProxy */;
+		};
+		F150976E1BE70B4F00AA1740 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F15097491BE70B4D00AA1740 /* ClassicLenses */;
+			targetProxy = F150976D1BE70B4F00AA1740 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F15097511BE70B4E00AA1740 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F15097521BE70B4E00AA1740 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F15097591BE70B4E00AA1740 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F150975A1BE70B4E00AA1740 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F15097731BE70B4F00AA1740 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F15097741BE70B4F00AA1740 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F15097761BE70B4F00AA1740 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ClassicLenses/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ksl.ClassicLenses;
+				PRODUCT_NAME = ClassicLenses;
+			};
+			name = Debug;
+		};
+		F15097771BE70B4F00AA1740 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = ClassicLenses/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ksl.ClassicLenses;
+				PRODUCT_NAME = ClassicLenses;
+			};
+			name = Release;
+		};
+		F15097791BE70B4F00AA1740 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ClassicLensesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ksl.ClassicLensesTests;
+				PRODUCT_NAME = ClassicLenses;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClassicLenses.app/ClassicLenses";
+			};
+			name = Debug;
+		};
+		F150977A1BE70B4F00AA1740 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = ClassicLensesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ksl.ClassicLensesTests;
+				PRODUCT_NAME = ClassicLenses;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ClassicLenses.app/ClassicLenses";
+			};
+			name = Release;
+		};
+		F150977C1BE70B4F00AA1740 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ClassicLensesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ksl.ClassicLensesUITests;
+				PRODUCT_NAME = ClassicLenses;
+				TEST_TARGET_NAME = ClassicLenses;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		F150977D1BE70B4F00AA1740 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ClassicLensesUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ksl.ClassicLensesUITests;
+				PRODUCT_NAME = ClassicLenses;
+				TEST_TARGET_NAME = ClassicLenses;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F15097451BE70B4D00AA1740 /* Build configuration list for PBXProject "ClassicLenses" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F15097731BE70B4F00AA1740 /* Debug */,
+				F15097741BE70B4F00AA1740 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F15097751BE70B4F00AA1740 /* Build configuration list for PBXNativeTarget "ClassicLenses" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F15097761BE70B4F00AA1740 /* Debug */,
+				F15097771BE70B4F00AA1740 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F15097781BE70B4F00AA1740 /* Build configuration list for PBXNativeTarget "ClassicLensesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F15097791BE70B4F00AA1740 /* Debug */,
+				F150977A1BE70B4F00AA1740 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F150977B1BE70B4F00AA1740 /* Build configuration list for PBXNativeTarget "ClassicLensesUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F150977C1BE70B4F00AA1740 /* Debug */,
+				F150977D1BE70B4F00AA1740 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F15097541BE70B4E00AA1740 /* ClassicLenses.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F15097551BE70B4E00AA1740 /* ClassicLenses.xcdatamodel */,
+			);
+			currentVersion = F15097551BE70B4E00AA1740 /* ClassicLenses.xcdatamodel */;
+			path = ClassicLenses.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F15097421BE70B4D00AA1740 /* Project object */;
+}
