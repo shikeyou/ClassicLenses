@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //array of lenses
     var lenses = [Lens]()
     var selectedLensIndex: Int?
+
+    //arrays of lenses with different sorting
+    var lensesSortedByFocalLength = [Lens]()
+    var lensesSortedByPrice = [Lens]()
     
     //dictionary of lens name -> dictionary of site -> array of prices
     var prices = [String: [String: [Price]]]()

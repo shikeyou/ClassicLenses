@@ -35,6 +35,7 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     //============================================
     // MARK: LIFE CYCLE METHODS
@@ -44,6 +45,9 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //restore segmented control stored defaults
+        segmentedControl.selectedSegmentIndex = NSUserDefaults.standardUserDefaults().integerForKey("userSortBy")
+        
         //load prices from core data
         let fetchedPrices = fetchPricesFromCoreData()
         if fetchedPrices.count > 0 {
@@ -51,10 +55,17 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
             appDelegate.prices = rearrangePriceArrayIntoDictionary(fetchedPrices)
             
             //load lenses from core data
-            let fetchedLenses = self.fetchLensesFromCoreData()
+            let fetchedLenses = fetchLensesFromCoreData()
             if fetchedLenses.count > 0 {
                 
-                self.appDelegate.lenses = fetchedLenses
+                //the fetched lenses are sorted by focal length already
+                appDelegate.lensesSortedByFocalLength = fetchedLenses
+                
+                //generate the lenses array which is sorted by price
+                appDelegate.lensesSortedByPrice = generateLensesSortedByPrice(fetchedLenses)
+                
+                //assign lenses array to appropriate sorted array
+                appDelegate.lenses = getSortedArrayBasedOnSelectedIndex()
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     
@@ -64,13 +75,14 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     //hide the activity indicator
                     UiHelper.hideActivityIndicator()
                     
-                    //enable refresh button
+                    //enable UI elements
                     self.refreshButton.enabled = true
+                    self.segmentedControl.enabled = true
                 })
                 
             } else {
                 //otherwise download prices
-                self.fetchLenses()
+                fetchLenses()
             }
             
         } else {
@@ -154,9 +166,29 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
     }
     
+    @IBAction func sortSegmentedControlValueChanged(sender: UISegmentedControl) {
+
+        //assign appropriate sorted array
+        appDelegate.lenses = getSortedArrayBasedOnSelectedIndex()
+        
+        //save user selection persistently
+        NSUserDefaults.standardUserDefaults().setInteger(segmentedControl.selectedSegmentIndex, forKey: "userSortBy")
+        
+        //reload collection view
+        collectionView.reloadData()
+    }
+    
     //============================================
     // MARK: METHODS
     //============================================
+    
+    func getSortedArrayBasedOnSelectedIndex() -> [Lens] {
+        if segmentedControl.selectedSegmentIndex == 0 {
+            return appDelegate.lensesSortedByFocalLength
+        } else {
+            return appDelegate.lensesSortedByPrice
+        }
+    }
     
     func rearrangePriceArrayIntoDictionary(prices: [Price]) -> [String: [String: [Price]]] {
         
@@ -191,6 +223,29 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         return rearrangedPrices
         
+    }
+    
+    func getRepresentativePriceFromLensName(lensName: String) -> Float {
+        
+        if let pricesSiteDict = appDelegate.prices[lensName] {
+            if let pricesForLens = pricesSiteDict["B&H (bhphotovideo.com)"] {  //using B&H prices as the representative price
+                
+                //sort
+                let pricesForLensSorted = pricesForLens.sort { $0.valueForKey("cost") as! Float > $1.valueForKey("cost") as! Float }
+                
+                //get first item from sorted list and add to actual list
+                if pricesForLensSorted.count > 0 {
+                    return pricesForLensSorted[0].cost
+                }
+            }
+        }
+        
+        return 0
+        
+    }
+    
+    func generateLensesSortedByPrice(lenses: [Lens]) -> [Lens] {
+        return lenses.sort { $0.valueForKey("representativePrice") as! Float > $1.valueForKey("representativePrice") as! Float }
     }
     
     func clearAllPrices() {
@@ -291,8 +346,9 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
         //show activity indicator
         dispatch_async(dispatch_get_main_queue(), {
             
-            //disable refresh button
+            //disable UI elements
             self.refreshButton.enabled = false
+            self.segmentedControl.enabled = false
             
             //show activity indicator
             UiHelper.showActivityIndicator(view: self.view)
@@ -317,7 +373,14 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     let fetchedLenses = self.fetchLensesFromCoreData()
                     if fetchedLenses.count > 0 {
                         
-                        self.appDelegate.lenses = fetchedLenses
+                        //the fetched lenses are sorted by focal length already
+                        self.appDelegate.lensesSortedByFocalLength = fetchedLenses
+                        
+                        //generate the lenses array which is sorted by price
+                        self.appDelegate.lensesSortedByPrice = self.generateLensesSortedByPrice(fetchedLenses)
+                        
+                        //assign lenses array to appropriate sorted array
+                        self.appDelegate.lenses = self.getSortedArrayBasedOnSelectedIndex()
                         
                         dispatch_async(dispatch_get_main_queue(), {
                             
@@ -327,8 +390,9 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
                             //hide the activity indicator
                             UiHelper.hideActivityIndicator()
                             
-                            //enable refresh button
+                            //enable UI elements
                             self.refreshButton.enabled = true
+                            self.segmentedControl.enabled = true
                         })
                         
                     } else {
@@ -343,8 +407,9 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
                         //hide activity indicator on error
                         UiHelper.hideActivityIndicator()
                         
-                        //enable refresh button
+                        //enable UI elements
                         self.refreshButton.enabled = true
+                        self.segmentedControl.enabled = true
                         
                         //show error msg
                         UiHelper.showAlert(view: self, title: "Prices request failed", msg: errorMsg)
@@ -367,19 +432,21 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
             })
         }
         
-        //clear lenses array
+        //clear lenses arrays
         appDelegate.lenses.removeAll()
+        appDelegate.lensesSortedByFocalLength.removeAll()
+        appDelegate.lensesSortedByPrice.removeAll()
         
         //save to core data
         saveChangesToCoreData()
     }
     
-    func filterLatestOfEachLens(items: [AnyObject]) -> [Lens] {
+    func filterLatestOfEachLens(items: [[String: AnyObject]]) -> [Lens] {
         
         var lenses = [Lens]()
         
         //create a dictionary which uses the name of the lens to index into a list of item
-        var tempLensDict = [String: [AnyObject]]()
+        var tempLensDict = [String: [[String: AnyObject]]]()
         
         //throw each item into their respective name-bins
         for item in items {
@@ -387,7 +454,7 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 
                 //create name dictionary if doesn't exist
                 if tempLensDict[name] == nil {
-                    tempLensDict[name] = [Lens]()
+                    tempLensDict[name] = [[String: AnyObject]]()
                 }
                 
                 tempLensDict[name]!.append(item)
@@ -398,11 +465,16 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
         for tempLenses in tempLensDict.values {
             
             //sort
-            let tempLensesSorted = tempLenses.sort { $0["date_updated"] as! String > $1["date_updated"] as! String }
+            var tempLensesSorted = tempLenses.sort { $0["date_updated"] as! String > $1["date_updated"] as! String }
             
             //get first item from sorted list and add to actual list
             CoreDataHelper.sharedContext.performBlockAndWait({
-                let lens = Lens(dict: tempLensesSorted[0] as! [String : AnyObject], autoCreateImageOnDisk: false, context: CoreDataHelper.sharedContext)
+
+                let lensName = (tempLensesSorted[0]["name"] as? String)!
+                let representativePrice = self.getRepresentativePriceFromLensName(lensName)
+                
+                let lens = Lens(dict: tempLensesSorted[0], representativePrice: representativePrice, autoCreateImageOnDisk: false, context: CoreDataHelper.sharedContext)
+                
                 lenses.append(lens)
             })
         }
@@ -419,8 +491,9 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         dispatch_async(dispatch_get_main_queue(), {
             
-            //disable refresh button
+            //disable UI elements
             self.refreshButton.enabled = false
+            self.segmentedControl.enabled = false
             
             //show activity indicator
             UiHelper.showActivityIndicator(view: self.view)
@@ -437,10 +510,19 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     
                     self.clearAllLenses()
                     
+                    //the fetched lenses are sorted by focal length already
+                    self.appDelegate.lensesSortedByFocalLength = filteredLenses
+                    
+                    //generate the lenses array which is sorted by price
+                    self.appDelegate.lensesSortedByPrice = self.generateLensesSortedByPrice(filteredLenses)
+                    
+                    //assign lenses array corresponding sorted array based on selected index
+                    let assignedLenses = self.getSortedArrayBasedOnSelectedIndex()
+                    
                     //place in placeholders
                     CoreDataHelper.scratchContext.performBlockAndWait({
                         for _ in 0..<total {
-                            let placeholderLens = Lens(dict: ["img": "loading"], context: CoreDataHelper.scratchContext)
+                            let placeholderLens = Lens(dict: ["img": "loading"], representativePrice: 0, context: CoreDataHelper.scratchContext)
                             self.appDelegate.lenses.append(placeholderLens)
                         }
                     })
@@ -451,14 +533,14 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     })
 
                     //update the cells one by one as we save the images on disk
-                    for (index, filteredLens) in filteredLenses.enumerate() {
+                    for (index, assignedLens) in assignedLenses.enumerate() {
                         
                         //create the actual image on disk (this part takes a while and is worth reloading cells one by one to show progress)
                         CoreDataHelper.sharedContext.performBlockAndWait({
-                            filteredLens.createImageOnDisk()
+                            assignedLens.createImageOnDisk()
                         })
                         
-                        self.appDelegate.lenses[index] = filteredLens
+                        self.appDelegate.lenses[index] = assignedLens
                         
                         dispatch_async(dispatch_get_main_queue(), {
                             //reload specific parts of the collection view with the new data
@@ -487,8 +569,9 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
                         //hide the activity indicator
                         UiHelper.hideActivityIndicator()
                         
-                        //enable refresh button
+                        //enable UI elements
                         self.refreshButton.enabled = true
+                        self.segmentedControl.enabled = true
                         
                     })
                     
@@ -502,8 +585,9 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
                         //hide activity indicator on error
                         UiHelper.hideActivityIndicator()
                         
-                        //enable refresh button
+                        //enable UI elements
                         self.refreshButton.enabled = true
+                        self.segmentedControl.enabled = true
                         
                         //show error msg
                         UiHelper.showAlert(view: self, title: "Lenses request failed", msg: errorMsg)
@@ -521,27 +605,6 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // MARK: COLLECTION VIEW DELEGATE METHODS
     //============================================
     
-    func getRepresentativePriceOfLens(lens: Lens) -> Float? {
-        
-        if let lensname = lens.name {
-            if let pricesSiteDict = appDelegate.prices[lensname] {
-                if let pricesForLens = pricesSiteDict["B&H (bhphotovideo.com)"] {  //using B&H prices as the representative price
-                    
-                    //sort
-                    let pricesForLensSorted = pricesForLens.sort { $0.valueForKey("cost") as! Float > $1.valueForKey("cost") as! Float }
-                    
-                    //get first item from sorted list and add to actual list
-                    if pricesForLensSorted.count > 0 {
-                        return pricesForLensSorted[0].cost
-                    }
-                }
-            }
-        }
-        
-        return nil
-
-    }
-    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return appDelegate.lenses.count
     }
@@ -556,18 +619,17 @@ class LensViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         //set appropriate data in the cell
         lens.managedObjectContext!.performBlockAndWait({
+            
             if let lensName = lens.name {
                 cell.nameLabel.text = lensName
             } else {
                 cell.nameLabel.text = ""
             }
-            if let price = self.getRepresentativePriceOfLens(lens) {
-                cell.priceLabel.text = String(format: "$%.2f", price)
-            } else {
-                cell.priceLabel.text = "-"
-            }
+            
+            cell.priceLabel.text = lens.representativePrice == 0 ? "-" : String(format: "$%.2f", lens.representativePrice)
             
             cell.imageView.image = FileHelper.retrieveImage(lens.imageFileName)
+            
             cell.userInteractionEnabled = lens.imageFileName != "loading" && lens.imageFileName != "error"
         })
         

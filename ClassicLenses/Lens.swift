@@ -30,6 +30,8 @@ class Lens: NSManagedObject {
     @NSManaged var dateUpdated: String?
     @NSManaged var imageFileName: String?
     
+    @NSManaged var representativePrice: Float
+    
     @NSManaged var prices: [Price]
     @NSManaged var photos: [Photo]
     
@@ -38,7 +40,7 @@ class Lens: NSManagedObject {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
     
-    init(name: String?, desc: String?, brand: String?, img: String?, focalLength: String?, aperture: String?, minFocusDist: String?, lensConstruction: String?, apertureBlades: String?, angleOfView: String?, mount: String?, length: String?, weight: String?, dateUpdated: String?, autoCreateImageOnDisk: Bool = true, context: NSManagedObjectContext) {
+    init(name: String?, desc: String?, brand: String?, img: String?, focalLength: String?, aperture: String?, minFocusDist: String?, lensConstruction: String?, apertureBlades: String?, angleOfView: String?, mount: String?, length: String?, weight: String?, dateUpdated: String?, representativePrice: Float, autoCreateImageOnDisk: Bool = true, context: NSManagedObjectContext) {
         
         //add entity to context
         let entity = NSEntityDescription.entityForName("Lens", inManagedObjectContext: context)!
@@ -59,6 +61,7 @@ class Lens: NSManagedObject {
         self.length = length
         self.weight = weight
         self.dateUpdated = dateUpdated
+        self.representativePrice = representativePrice
         
         if self.img == "loading" {
             self.imageFileName = "loading"
@@ -70,7 +73,7 @@ class Lens: NSManagedObject {
         }
     }
     
-    convenience init(dict: [String: AnyObject], autoCreateImageOnDisk: Bool = true, context: NSManagedObjectContext) {
+    convenience init(dict: [String: AnyObject], representativePrice: Float, autoCreateImageOnDisk: Bool = true, context: NSManagedObjectContext) {
         self.init(
             name: dict["name"] as? String,
             desc: dict["description"] as? String,
@@ -86,6 +89,7 @@ class Lens: NSManagedObject {
             length: dict["length"] as? String,
             weight: dict["weight"] as? String,
             dateUpdated: dict["date_updated"] as? String,
+            representativePrice: representativePrice,
             autoCreateImageOnDisk: autoCreateImageOnDisk,
             context: context
         )
